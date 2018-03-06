@@ -13,28 +13,33 @@ import org.junit.Test;
  */
 public class ORMStandaloneTestCase {
 
-	private SessionFactory sf;
+    private SessionFactory sf;
 
-	@Before
-	public void setup() {
-		StandardServiceRegistryBuilder srb = new StandardServiceRegistryBuilder()
-			// Add in any settings that are specific to your test. See resources/hibernate.properties for the defaults.
-			.applySetting( "hibernate.show_sql", "true" )
-			.applySetting( "hibernate.format_sql", "true" )
-			.applySetting( "hibernate.hbm2ddl.auto", "update" );
+    //@formatter:off
+    @Before
+    public void setup() {
+        StandardServiceRegistryBuilder srb = new StandardServiceRegistryBuilder()
+                        // Add in any settings that are specific to your test. See resources/hibernate.properties for the defaults.
+                        .applySetting("hibernate.show_sql", "true").applySetting("hibernate.format_sql", "true").applySetting("hibernate.hbm2ddl.auto",
+                                                                                                                              "update");
 
-		Metadata metadata = new MetadataSources( srb.build() )
-		// Add your entities here.
-		//	.addAnnotatedClass( Foo.class )
-			.buildMetadata();
+        Metadata metadata = new MetadataSources(srb.build())
+                        // Add your entities here.
+                        .addAnnotatedClass(PrincipalEntity.class)
+                        .addAnnotatedClass(UsergroupEntity.class)
+                        .addAnnotatedClass(UserEntity.class)
+                        .addAnnotatedClass(CustomerEntity.class)
+                        .addAnnotatedClass(PurchaseLimitEntity.class).buildMetadata();
 
-		sf = metadata.buildSessionFactory();
-	}
+        sf = metadata.buildSessionFactory();
+    }
 
-	// Add your tests, using standard JUnit.
+    //@formatter:on
 
-	@Test
-	public void hhh123Test() throws Exception {
+    // Add your tests, using standard JUnit.
 
-	}
+    @Test
+    public void hhh123Test() throws Exception {
+
+    }
 }
