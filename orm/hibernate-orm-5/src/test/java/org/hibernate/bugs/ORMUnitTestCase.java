@@ -37,6 +37,8 @@ public class ORMUnitTestCase extends BaseCoreFunctionalTestCase {
 	@Override
 	protected Class[] getAnnotatedClasses() {
 		return new Class[] {
+						CategoryEntity.class,
+						TaxonEntity.class
 //				Foo.class,
 //				Bar.class
 		};
