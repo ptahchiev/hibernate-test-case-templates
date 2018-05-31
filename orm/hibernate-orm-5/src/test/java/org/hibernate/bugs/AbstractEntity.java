@@ -1,13 +1,14 @@
 package org.hibernate.bugs;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Id;
+import javax.persistence.MappedSuperclass;
 
 /**
  * @author Petar Tahchiev
  * @since 1.5
  */
 @MappedSuperclass
-@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public class AbstractEntity {
 
 	@Id
